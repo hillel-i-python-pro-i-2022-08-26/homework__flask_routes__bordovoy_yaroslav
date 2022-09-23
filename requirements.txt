@@ -1,1 +1,18 @@
+# Just Flask
 flask==2.2.2
+
+# Autoformatter
+black==22.8.0
+
+# Check codestyle
+flake8==5.0.4
+
+# Generate fake-names
+faker==14.2.1
+
+# Upgrade syntax
+pyupgrade==2.38.0
+
+# Pre-commit hook
+pre-commit==2.20.0
+
