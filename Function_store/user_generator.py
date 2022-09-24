@@ -11,11 +11,11 @@ from faker import Faker
 fake = Faker()
 
 
-def generate_fake_users():
+def generate_fake_user():
     name = fake.first_name()
     email = fake.domain_name()
     return f"{name}@{email}"
 
 
 if __name__ == "__main__":
-    generate_fake_users()
+    generate_fake_user()
