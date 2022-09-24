@@ -4,16 +4,12 @@ PATH: /requirements/
 Возвращать содержимое файла. Любой текстовый файл.
 """
 
-import pathlib
-
-
-ROOT_PATH = pathlib.Path(__file__).parents[1]
-FILES_PATH = ROOT_PATH.joinpath("requirements.txt")
+from function_store import path_settings
 
 
 def read_requirements():
-
-    with open(FILES_PATH) as file:
+    new_path = path_settings.read_txt()
+    with open(new_path) as file:
         return file.read()
 
 
