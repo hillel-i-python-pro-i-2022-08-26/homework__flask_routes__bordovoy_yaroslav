@@ -1,6 +1,6 @@
 from flask import Flask
 
-from Function_store import reading_a_file, user_generator, space_astro, average_data
+from function_store import reading_a_file, user_generator, space_astro, average_data
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def read_file() -> str:
 def generate_users(amount: int = 100) -> str:
     for user in range(amount):
         user += 1
-        yield "".join(f"<ol>{user}: {user_generator.generate_fake_users()}</ol>")
+        yield "".join(f"<ol>{user}: {user_generator.generate_fake_user()}</ol>")
 
 
 # PATH: /space/
@@ -33,11 +33,11 @@ def generate_users(amount: int = 100) -> str:
 def space() -> str:
     num_astro = space_astro.get_astro()
     iss_list = [i["name"] for i in num_astro["people"] if i["craft"] == "ISS"]
-    tiangong_list = [i["name"] for i in num_astro["people"] if i["craft"] == "Tiangong"]
+    ship_list = [i["name"] for i in num_astro["people"] if i["craft"] == "Tiangong"]
     return (
         f'<p>Astronauts at the moment: {num_astro["number"]}</p>'
         f'<p>ISS crafting: {", ".join(iss_list)}</p>'
-        f'<p>Tiangong crafting: {", ".join(tiangong_list)}</p>'
+        f'<p>Tiangong crafting: {", ".join(ship_list)}</p>'
     )
 
 
