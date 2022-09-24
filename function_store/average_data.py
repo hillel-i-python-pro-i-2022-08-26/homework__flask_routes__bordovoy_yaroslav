@@ -1,13 +1,11 @@
 import csv
-import pathlib
 
-
-ROOT_PATH = pathlib.Path(__file__).parents[0]
-FILES_PATH = ROOT_PATH.joinpath("people_data.csv")
+from function_store import path_settings
 
 
 def average():
-    with open(FILES_PATH, newline="") as file:
+    csv_file = path_settings.read_csv()
+    with open(csv_file, newline="") as file:
         reader = csv.DictReader(file)
         average_height = 0
         average_weight = 0
@@ -24,4 +22,4 @@ def average():
 
 
 if __name__ == "__main__":
-    print(average())
+    average()
