@@ -1,18 +1,10 @@
 import csv
 
-from function_store import path_settings
-
-
-def csv_path():
-    ROOT_PATH = path_settings.ROOT_PATH_csv
-    FILES_PATH_csv = ROOT_PATH.joinpath("people_data.csv")
-
-    return FILES_PATH_csv
+from function_store.path_settings import FILES_PATH_csv
 
 
 def average():
-    csv_file = csv_path()
-    with open(csv_file, newline="") as file:
+    with open(FILES_PATH_csv, newline="") as file:
         reader = csv.DictReader(file)
         average_height = 0
         average_weight = 0
