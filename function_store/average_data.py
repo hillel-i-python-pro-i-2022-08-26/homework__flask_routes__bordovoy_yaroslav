@@ -3,8 +3,15 @@ import csv
 from function_store import path_settings
 
 
+def csv_path():
+    ROOT_PATH = path_settings.ROOT_PATH_csv
+    FILES_PATH_csv = ROOT_PATH.joinpath("people_data.csv")
+
+    return FILES_PATH_csv
+
+
 def average():
-    csv_file = path_settings.read_csv()
+    csv_file = csv_path()
     with open(csv_file, newline="") as file:
         reader = csv.DictReader(file)
         average_height = 0
