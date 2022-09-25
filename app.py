@@ -32,8 +32,13 @@ def generate_users(amount: int = 100) -> str:
 @app.route("/space")
 def space() -> str:
     num_astro = space_astro.get_astro()
-    iss_list = [i["name"] for i in num_astro["people"] if i["craft"] == "ISS"]
-    ship_list = [i["name"] for i in num_astro["people"] if i["craft"] == "Tiangong"]
+    iss_list = []
+    ship_list = []
+    for i in num_astro["people"]:
+        if i["craft"] == "ISS":
+            iss_list.append(i["name"])
+        else:
+            ship_list.append(i["name"])
     return (
         f'<p>Astronauts at the moment: {num_astro["number"]}</p>'
         f'<p>ISS crafting: {", ".join(iss_list)}</p>'
