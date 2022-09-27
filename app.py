@@ -35,10 +35,13 @@ def space() -> str:
     iss_list = []
     ship_list = []
     for i in num_astro["people"]:
-        if i["craft"] == "ISS":
-            iss_list.append(i["name"])
-        else:
-            ship_list.append(i["name"])
+        for v in i.values():
+            if v == "ISS":
+                iss_list.append(i["name"])
+            elif v == "Tiangong":
+                ship_list.append(i["name"])
+            else:
+                "This ship is not in the database"
     return (
         f'<p>Astronauts at the moment: {num_astro["number"]}</p>'
         f'<p>ISS crafting: {", ".join(iss_list)}</p>'
