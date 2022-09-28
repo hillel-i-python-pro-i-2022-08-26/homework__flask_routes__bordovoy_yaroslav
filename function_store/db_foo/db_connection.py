@@ -7,7 +7,7 @@ class DBConnection:
 
     # Initiating a database connection
     def __int__(self):
-        self._connection: sqlite3.Connection
+        self._connection: sqlite3.Connection | None = None
 
     # Establishing a connection to the database
     def __enter__(self):
