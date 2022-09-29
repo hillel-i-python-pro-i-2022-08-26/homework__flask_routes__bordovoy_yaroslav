@@ -2,9 +2,9 @@ from flask import Flask, Response
 from webargs import fields
 from webargs.flaskparser import use_args
 
-from function_store.db_foo.creating_sql_table import create_table
-from function_store.db_foo.db_connection import DBConnection
-from function_store.flask_foo import (
+from function_store.database_functions.creating_sql_table import create_table
+from function_store.database_functions.db_connection import DBConnection
+from function_store.flask_functions import (
     average_data,
     space_astro,
     user_generator,
