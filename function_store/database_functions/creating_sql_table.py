@@ -1,4 +1,4 @@
-from function_store.db_foo.db_connection import DBConnection
+from function_store.database_functions.db_connection import DBConnection
 
 
 def create_table():
