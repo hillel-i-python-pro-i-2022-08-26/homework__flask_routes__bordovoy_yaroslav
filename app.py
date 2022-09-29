@@ -32,21 +32,9 @@ def generate_users(amount: int = 100) -> str:
 @app.route("/space")
 def space() -> str:
     num_astro = space_astro.get_astro()
-    iss_list = []
-    ship_list = []
-    for i in num_astro["people"]:
-        for v in i.values():
-            if v == "ISS":
-                iss_list.append(i["name"])
-            elif v == "Tiangong":
-                ship_list.append(i["name"])
-            else:
-                "This ship is not in the database"
-    return (
-        f'<p>Astronauts at the moment: {num_astro["number"]}</p>'
-        f'<p>ISS crafting: {", ".join(iss_list)}</p>'
-        f'<p>Tiangong crafting: {", ".join(ship_list)}</p>'
-    )
+    yield f'<p>Astronauts at the moment: {num_astro["number"]}</p><br>'
+    for name in num_astro["people"]:
+        yield f'<p>{name["name"]} is part of the {name["craft"]} group</p>'
 
 
 # PATH: /mean/
