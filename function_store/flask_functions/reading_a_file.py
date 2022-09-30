@@ -4,11 +4,11 @@ PATH: /requirements/
 Возвращать содержимое файла. Любой текстовый файл.
 """
 
-from function_store.path_settings import FILES_PATH_txt
+from function_store.path_settings import PATH_TO_REQUIREMENT_FILE
 
 
 def read_requirements():
-    with open(FILES_PATH_txt) as file:
+    with open(PATH_TO_REQUIREMENT_FILE) as file:
         return file.read()
 
 

@@ -1,10 +1,11 @@
 import pathlib
+from typing import Final
 
 
-ROOT_PATH = pathlib.Path(__file__).parents[1]
-FILES_PATH_txt = ROOT_PATH.joinpath("requirements.txt")
+ROOT_PATH: Final[pathlib.Path] = pathlib.Path(__file__).parents[1]
+PATH_TO_REQUIREMENT_FILE: Final[pathlib.Path] = ROOT_PATH.joinpath("requirements.txt")
 
-ROOT_PATH_csv = pathlib.Path("./function_store/flask_functions/")
-FILES_PATH_csv = ROOT_PATH_csv.joinpath("people_data.csv")
+PATH_TO_FILES: Final[pathlib.Path] = pathlib.Path("function_store", "flask_functions")
+PATH_TO_PEOPLE_DATA_CSV: Final[pathlib.Path] = PATH_TO_FILES.joinpath("people_data.csv")
 
-DB_PATH = ROOT_PATH.joinpath("database_sql", "db.sqlite")
+DB_PATH: Final[pathlib.Path] = ROOT_PATH.joinpath("database_sql", "db.sqlite")
